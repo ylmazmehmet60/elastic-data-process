@@ -31,7 +31,7 @@ class ElasticsearchHandler:
                 }
                 buffer.append(document)
 
-                if len(buffer) >= 5000:
+                if len(buffer) >= 1000:
                     yield buffer
                     buffer = []
             if buffer:
@@ -56,7 +56,8 @@ class ElasticsearchHandler:
 files_and_indexes = [
     ('../ml-latest/movies.csv', 'movies'),
     ('../ml-latest/links.csv', 'links'),
-    ('../ml-latest/tags.csv', 'tags')
+    ('../ml-latest/tags.csv', 'tags'),
+    ('../ml-latest/ratings.csv', 'ratings')
 ]
 
 es_handler = ElasticsearchHandler()
